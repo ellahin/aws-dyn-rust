@@ -12,7 +12,8 @@ Once deployed you need to below entry to DynamoDB
 |key|domain|last_set|secret|zoneid|
 |---|---|---|---|---|
 |Random keyid|domain to apply|127.0.0.1|SHA512 Hex encoded secret|Route53 Zone ID|
-I use this [Online Tool](https://emn178.github.io/online-tools/sha512.html) to hash the secret key.
+
+I use this [Online Tool](https://emn178.github.io/online-tools/sha512.html) to hash the secret key.\
 I would reconmend you use something like [my password generatator](https://github.com/ellahin/ella_password_gen) to generate the raw secret key.
 
 ### Setting up the client
