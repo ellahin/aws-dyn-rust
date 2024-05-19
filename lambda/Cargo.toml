@@ -17,6 +17,5 @@ common_data = {"path" = "../common_data/"}
 serde_json = "1.0.117"
 aws-config = "1.4.0"
 sha2 = "0.10.8"
-hex-literal = "0.4.1"
 aws-sdk-route53 = "1.26.0"
 regex = "1.10.4"

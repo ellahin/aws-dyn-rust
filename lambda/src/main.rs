@@ -1,6 +1,4 @@
 use aws_config::BehaviorVersion;
-use aws_sdk_dynamodb::error::SdkError;
-use aws_sdk_dynamodb::operation::get_item::GetItemError;
 use aws_sdk_dynamodb::types::AttributeValue;
 use aws_sdk_route53::types::Change;
 use aws_sdk_route53::types::ChangeBatch;
@@ -18,7 +16,6 @@ use regex::Regex;
 use sha2::{Digest, Sha512};
 
 use std::env;
-use std::net::IpAddr;
 
 async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
     let dynamno_table = match env::var("DATABASE") {
