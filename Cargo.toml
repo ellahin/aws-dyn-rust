@@ -1,0 +1,3 @@
+[workspace]
+members = [ "client", "common_data","lambda"]
+resolver = "2"
