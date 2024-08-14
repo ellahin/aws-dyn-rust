@@ -58,6 +58,7 @@ async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
     let ip = match ip {
         Some(i) => i,
         None => {
+            println!("No Ip address");
             let resp = Response::builder()
                 .status(400)
                 .header("content-type", "text/html")
@@ -80,7 +81,7 @@ async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
     {
         Ok(r) => r,
         Err(e) => {
-            println!("{:?}", e);
+            println!("Cannot connect to db: {:?}", e);
             let resp = Response::builder()
                 .status(500)
                 .header("content-type", "text/html")
@@ -94,6 +95,7 @@ async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
     let item = match request.item() {
         Some(e) => e,
         None => {
+            println!("Cannot find key: {:?}", req.key);
             let resp = Response::builder()
                 .status(401)
                 .header("content-type", "text/html")
@@ -299,6 +301,7 @@ async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
             return Ok(resp);
         }
     };
+
     let change_batch = match ChangeBatch::builder().changes(change).build() {
         Ok(e) => e,
         Err(e) => {
